@@ -23,7 +23,7 @@
     in {
       nixosConfigurations = { pi = system; };
       images.pi = image;
-      packages.x86_64-linux.pi-image = images.pi;
-      packages.aarch64-linux.pi-image = images.pi;
+      packages.x86_64-linux.pi-image = image;
+      packages.aarch64-linux.pi-image = image;
     };
 }
