@@ -1,5 +1,5 @@
 { pkgs, config, lib, ... }: {
-
+  system.stateVersion = "24.05";
   environment.systemPackages = with pkgs; [
     vim
     emacs-nox
@@ -24,7 +24,6 @@
   security.sudo.wheelNeedsPassword = false;
 
   networking.wireless = {
-    hostName = "usb-pi";
     enable = true;
     interfaces = [ "wlan0" ];
     networks = { "Vivaldi" = { psk = "#laprimavera1723#"; }; };
@@ -35,12 +34,13 @@
       prefixLength = 24;
     }];
   };
+  networking.hostName = "usb-pi";
   networking.defaultGateway = "192.168.2.1";
   networking.nameservers = [ "1.1.1.1" ];
 
   services.openssh = {
     enable = true;
-    passwordAuthentication = true;
-    permitRootLogin = "yes";
+    settings.PasswordAuthentication = true;
+    settings.PermitRootLogin = "yes";
   };
 }
