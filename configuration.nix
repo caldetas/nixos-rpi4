@@ -15,14 +15,6 @@ in { pkgs, config, lib, ... }: {
     jq
     git
     rsync
-
-    libraspberrypi
-    libgpiod
-    gpio-utils
-    i2c-tools
-
-    python39
-    python39Packages.pip
   ];
 
   users = {
