@@ -7,3 +7,9 @@ pi.img: $(find . -type f -name '*.nix')
 	nix build '.#images.pi'
 	zstd --decompress --force -o pi.img ./result/sd-image/*.zst
 	fdisk pi.img -l
+
+
+deploy:
+	git push www
+	ssh "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" root@192.168.2.15 -- \
+		nixos-rebuild switch --flake 'git+https://www.lan.heinrichhartmann.net/2024-02-18-nixos-rpi4-flake.git#pi

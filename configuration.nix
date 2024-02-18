@@ -14,6 +14,9 @@
     bc
   ];
 
+  # set password with mkpassword
+  users.
+
   users = {
     extraGroups = { gpio = { }; };
     extraUsers.pi = {
@@ -21,6 +24,7 @@
       initialPassword = "nixos";
       extraGroups = [ "wheel" "networkmanager" "dialout" "gpio" "i2c" ];
     };
+    extraUsers.root.initialPassword = "nixos";
   };
   services.getty.autologinUser = "pi";
   security.sudo.wheelNeedsPassword = false;
@@ -32,7 +36,7 @@
   };
   networking.interfaces.wlan0 = {
     ipv4.addresses = [{
-      address = "192.168.2.16";
+      address = "192.168.2.15";
       prefixLength = 24;
     }];
   };
