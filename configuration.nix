@@ -14,8 +14,16 @@ in { pkgs, config, lib, ... }: {
     jq
     git
     rsync
-    wget
-    bc
+
+    libraspberrypi
+    libgpiod
+    gpio-utils
+    i2c-tools
+
+    python39
+    python39Packages.pip
+    (python39.withPackages
+      (ps: with ps; [ adafruit-pureio adafruit-io pyserial ]))
   ];
 
   users = {

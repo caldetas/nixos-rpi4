@@ -23,5 +23,4 @@
     substituters =
       [ "https://nix.lan.heinrichhartmann.net" "https://cache.nixos.org" ];
   };
-
 }

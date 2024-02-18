@@ -4,18 +4,6 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
   };
   outputs = { self, nixpkgs, nixos-hardware }: rec {
-    images = {
-      pi = (self.nixosConfigurations.pi.extendModules {
-        modules = [
-          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-          {
-            disabledModules = [ "profiles/base.nix" ];
-          }
-        ];
-      }).config.system.build.sdImage;
-    };
-    packages.x86_64-linux.pi-image = images.pi;
-    packages.aarch64-linux.pi-image = images.pi;
     nixosConfigurations = {
       pi = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
@@ -27,6 +15,16 @@
         ];
       };
     };
+    images = {
+      pi = (self.nixosConfigurations.pi.extendModules {
+        modules = [
+          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+          { disabledModules = [ "profiles/base.nix" ]; }
+        ];
+      }).config.system.build.sdImage;
+    };
+    packages.x86_64-linux.pi-image = images.pi;
+    packages.aarch64-linux.pi-image = images.pi;
   };
 }
 
