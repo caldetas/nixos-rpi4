@@ -1,4 +1,8 @@
-{ pkgs, config, lib, ... }: {
+let
+  sshkeys = [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDG93Lrx68lLdsuDL81JY95RhBCMOZEBQAWaU4z8VLk+3uaNgMnuY4l/1DwFBTo5PStEod/gk4PWyYX/y4PgoXSDxiGNtIe9ZipXnrNyWFDblihchuLtEDV37GC+YOgZBysLWLmwZ4nL8wxUUPNhOnjSF9nPapmnvpV1eYwb+1DfsWdJ9nJ5tE/B3u6YDAm54nOU75ctk60gB7HWIq7slMWGWTpXuN0M1YhJSUb6UjeFAcQDlHCvIN2F0SEZgbax80xBlTcSKkvCJlOe1RZ0wYTItYW5fbLweeHuqJPU7s2U8F9ytqzhHBxRfQCh64sWVylOQ7PJ+RUGYgK6e4EwzSd3X+PQV7nZMYM6WUk890xnHbER+pNmtorPaBoX4EJvfwYS4v7boZ74xi/DuflT0h3J4GXmoaumD0mTVFgnyc6gkoHEi5B+bm5MRldiGRCyMmOOxq/zvEjcmB/Obj1BR0C+c11uFC4dEhIjBHWej+Kdju6ZqH0d9zksr2YgKMs4Lc= hhartmann@pve"
+  ];
+in { pkgs, config, lib, ... }: {
   system.stateVersion = "24.05";
   environment.systemPackages = with pkgs; [
     vim
@@ -14,17 +18,18 @@
     bc
   ];
 
-  # set password with mkpassword
-  users.
-
   users = {
     extraGroups = { gpio = { }; };
     extraUsers.pi = {
       isNormalUser = true;
       initialPassword = "nixos";
+      openssh.authorizedKeys.keys = sshkeys;
       extraGroups = [ "wheel" "networkmanager" "dialout" "gpio" "i2c" ];
     };
-    extraUsers.root.initialPassword = "nixos";
+    extraUsers.root = {
+      initialPassword = "nixos";
+      openssh.authorizedKeys.keys = sshkeys;
+    };
   };
   services.getty.autologinUser = "pi";
   security.sudo.wheelNeedsPassword = false;
