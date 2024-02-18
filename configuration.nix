@@ -22,8 +22,6 @@ in { pkgs, config, lib, ... }: {
 
     python39
     python39Packages.pip
-    (python39.withPackages
-      (ps: with ps; [ adafruit-pureio adafruit-io pyserial ]))
   ];
 
   users = {
