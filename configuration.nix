@@ -10,6 +10,8 @@
     jq
     git
     rsync
+    wget
+    bc
   ];
 
   users = {
