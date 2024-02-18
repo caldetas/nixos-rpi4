@@ -13,7 +13,7 @@
     kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
     kernelParams = [ "console=ttyAMA0,115200n8" "console=ttyS0,115200n8" ];
     loader = {
-      generic-extlinux-compatiblec.enable = lib.mkDefault true;
+      generic-extlinux-compatible.enable = lib.mkDefault true;
       grub.enable = lib.mkDefault false;
     };
   };
