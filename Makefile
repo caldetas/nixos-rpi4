@@ -12,5 +12,5 @@ deploy:
 	-git commit -am "."
 	-git push www
 	-git push HH
-	ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" root@192.168.2.15 -- \
-		nixos-rebuild switch --flake 'git+https://www.lan.heinrichhartmann.net/2024-02-18-nixos-rpi4-flake.git?rev=$(shell git rev-parse HEAD)#pi'
+	#ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" root@192.168.2.15 -- nixos-rebuild switch --flake 'git+https://www.lan.heinrichhartmann.net/2024-02-18-nixos-rpi4-flake.git?rev=$(shell git rev-parse HEAD)#pi'
+	ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" root@192.168.2.15 -- nixos-rebuild switch --flake 'github:HeinrichHartmann/2024-02-18-nixos-rpi4-flake.git?rev=$(shell git rev-parse HEAD)#pi'
