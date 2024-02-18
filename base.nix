@@ -16,6 +16,8 @@
       generic-extlinux-compatible.enable = lib.mkDefault true;
       grub.enable = lib.mkDefault false;
     };
+    kernelModules = [ "i2c-dev" ];
+    initrd.availableKernelModules = pkgs.lib.mkForce [ "mmc_block" ];
   };
   nix.settings = {
     experimental-features = lib.mkDefault "nix-command flakes";
