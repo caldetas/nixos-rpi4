@@ -21,9 +21,9 @@
         ];
       }).config.system.build.sdImage;
     in {
-      # nixosConfigurations = { pi = system; };
+      nixosConfigurations = { pi = system; };
       images.pi = image;
-      packages.x86_64-linux.pi-image = image;
-      packages.aarch64-linux.pi-image = image;
+      # packages.x86_64-linux.pi-image = image;
+      # packages.aarch64-linux.pi-image = image;
     };
 }
