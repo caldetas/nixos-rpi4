@@ -30,7 +30,7 @@
   };
   networking.interfaces.wlan0 = {
     ipv4.addresses = [{
-      address = "192.168.2.15";
+      address = "192.168.2.16";
       prefixLength = 24;
     }];
   };
