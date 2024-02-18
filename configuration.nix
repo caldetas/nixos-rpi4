@@ -31,9 +31,6 @@ in { pkgs, config, lib, ... }: {
       openssh.authorizedKeys.keys = sshkeys;
     };
   };
-  services.getty.autologinUser = "pi";
-  security.sudo.wheelNeedsPassword = false;
-
   networking.wireless = {
     enable = true;
     interfaces = [ "wlan0" ];

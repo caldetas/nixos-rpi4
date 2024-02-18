@@ -8,7 +8,6 @@ pi.img: $(find . -type f -name '*.nix')
 	zstd --decompress --force -o pi.img ./result/sd-image/*.zst
 	fdisk pi.img -l
 
-
 deploy:
 	-git commit -am "."
 	-git push www
