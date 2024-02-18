@@ -1,23 +1,46 @@
-{ pkgs, config, lib, ... }:
-{
-  environment.systemPackages = with pkgs; [ vim git ];
-  services.openssh.enable = true;
-  networking.hostName = "pi";
+{ pkgs, config, lib, ... }: {
+
+  environment.systemPackages = with pkgs; [
+    vim
+    emacs-nox
+    tmux
+    screen
+    usbutils
+    pciutils
+    jq
+    git
+    rsync
+  ];
+
   users = {
-    users.myUsername = {
-      password = "myPassword";
+    extraGroups = { gpio = { }; };
+    extraUsers.pi = {
       isNormalUser = true;
-      extraGroups = [ "wheel" ];
+      initialPassword = "nixos";
+      extraGroups = [ "wheel" "networkmanager" "dialout" "gpio" "i2c" ];
     };
   };
-  networking = {
-    interfaces."wlan0".useDHCP = true;
-    wireless = {
-      interfaces = [ "wlan0" ];
-      enable = true;
-      networks = {
-        networkSSID.psk = "password";
-      };
-    };
+  services.getty.autologinUser = "pi";
+  security.sudo.wheelNeedsPassword = false;
+
+  networking.wireless = {
+    hostName = "usb-pi";
+    enable = true;
+    interfaces = [ "wlan0" ];
+    networks = { "Vivaldi" = { psk = "#laprimavera1723#"; }; };
+  };
+  networking.interfaces.wlan0 = {
+    ipv4.addresses = [{
+      address = "192.168.2.15";
+      prefixLength = 24;
+    }];
+  };
+  networking.defaultGateway = "192.168.2.1";
+  networking.nameservers = [ "1.1.1.1" ];
+
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = true;
+    permitRootLogin = "yes";
   };
 }
