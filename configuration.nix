@@ -50,4 +50,7 @@ in { pkgs, config, lib, ... }: {
     settings.PasswordAuthentication = true;
     settings.PermitRootLogin = "yes";
   };
+
+  environment.etc."tmux.conf".source = ./tmux.conf
+
 }

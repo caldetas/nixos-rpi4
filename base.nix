@@ -9,6 +9,9 @@
     device = "/dev/disk/by-label/NIXOS_SD";
     fsType = "ext4";
   };
+
+  hardware.i2c.enable = true;
+
   boot = {
     kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
     kernelParams = [ "console=ttyAMA0,115200n8" "console=ttyS0,115200n8" ];

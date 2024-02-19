@@ -3,10 +3,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [
-    ${pkgs}/nixos/modules/profiles/base.nix
-    ${pkgs}/nixos/modules/installer/sd-card/sd-image.nix
-  ];
+  imports = [ <nixpkgs/nixos/modules/installer/sd-card/sd-image.nix> ];
 
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
@@ -58,6 +55,9 @@
         # Prevent the firmware from smashing the framebuffer setup done by the mainline kernel
         # when attempting to show low-voltage or overtemperature warnings.
         avoid_warnings=1
+
+        # XXX
+        dtparam=i2c=on
       '';
     in ''
       (cd ${pkgs.raspberrypifw}/share/raspberrypi/boot && cp bootcode.bin fixup*.dat start*.elf $NIX_BUILD_TOP/firmware/)

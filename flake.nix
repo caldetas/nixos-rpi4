@@ -16,8 +16,8 @@
       };
       image = (system.extendModules {
         modules = [
-          # "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-          ./sd-image-aarch64.nix
+          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+          # ./sd-image-aarch64.nix
           { disabledModules = [ "profiles/base.nix" ]; }
         ];
       }).config.system.build.sdImage;
