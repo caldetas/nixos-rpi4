@@ -15,6 +15,12 @@ in { pkgs, config, lib, ... }: {
     jq
     git
     rsync
+
+    libraspberrypi
+    libgpiod
+    gpio-utils
+    i2c-tools
+
   ];
 
   users = {
