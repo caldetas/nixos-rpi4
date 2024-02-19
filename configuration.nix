@@ -51,6 +51,6 @@ in { pkgs, config, lib, ... }: {
     settings.PermitRootLogin = "yes";
   };
 
-  environment.etc."tmux.conf".source = ./tmux.conf
+  environment.etc."tmux.conf".source = ./tmux.conf;
 
 }
