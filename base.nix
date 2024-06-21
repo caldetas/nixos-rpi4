@@ -26,6 +26,6 @@
     experimental-features = lib.mkDefault "nix-command flakes";
     trusted-users = [ "root" "@wheel" ];
     substituters =
-      [ "https://nix.lan.heinrichhartmann.net" "https://cache.nixos.org" ];
+      [ "https://cache.nixos.org" ];
   };
 }
