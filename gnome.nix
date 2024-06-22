@@ -5,7 +5,7 @@
 
 
 {
-    programs = {
+    /*programs = {
       zsh.enable = true;
 #      kdeconnect = {
 #        # GSConnect
@@ -64,5 +64,5 @@
         tali
         yelp
       ]);
-    };
+    };*/
 }
