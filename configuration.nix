@@ -55,10 +55,10 @@ in { pkgs, config, lib, ... }: {
 #      prefixLength = 24;
 #    }];
 #  };
-  networking.hostName = "usb-pi";
+#  networking.hostName = "usb-pi";
 
 #  networking.defaultGateway = "192.168.178.1";
-  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
+#  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
 
   services.openssh = {
     enable = true;
