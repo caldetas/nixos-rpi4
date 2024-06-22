@@ -3,9 +3,9 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILECy6PK+pg6QaEoKQ4sr32COh14nnEE5BdzmqOK13Ca rspi4@example.com"
   ];
 in { pkgs, config, lib, ... }: {
-#imports = [
-#  "${fetchTarball "https://github.com/NixOS/nixos-hardware/tarball/master"}/raspberry-pi/4"
-#];
+imports = [
+  "${fetchTarball "https://github.com/NixOS/nixos-hardware/tarball/master"}/raspberry-pi/4"
+];
   system.stateVersion = "23.11";
   environment.systemPackages = with pkgs; [
     vim
@@ -45,6 +45,9 @@ in { pkgs, config, lib, ... }: {
     networks."robot".psk = "frijolito";
     extraConfig = "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel";
   };
+    services.xserver.enable = true;
+    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.desktopManager.gnome.enable = true;
 #  networking.interfaces.wlan0 = {
 #    ipv4.addresses = [{
 #      address = "192.168.178.102";

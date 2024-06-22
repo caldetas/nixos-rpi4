@@ -45,7 +45,7 @@
       systemPackages = with pkgs.gnome; [
         # System-Wide Packages
         adwaita-icon-theme
-        dconf-editor
+        dconf-editorq
         gnome-themes-extra
         gnome-tweaks
       ];

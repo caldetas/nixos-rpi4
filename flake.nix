@@ -12,7 +12,7 @@
           "${nixpkgs}/nixos/modules/profiles/minimal.nix"
           ./configuration.nix
           ./base.nix
-          ./gnome.nix
+#          ./gnome.nix
         ];
       };
       image = (system.extendModules {
