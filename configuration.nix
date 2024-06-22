@@ -37,11 +37,11 @@ in { pkgs, config, lib, ... }: {
       openssh.authorizedKeys.keys = sshkeys;
     };
   };
-  networking.wireless = {
-    enable = true;
-    networks."robot".psk = "frijolito";
-    extraConfig = "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel";
-  };
+#  networking.wireless = {
+#    enable = true;
+#    networks."robot".psk = "frijolito";
+#    extraConfig = "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel";
+#  };
     services.xserver.enable = true;
     services.xserver.displayManager.gdm.enable = true;
     services.xserver.desktopManager.gnome.enable = true;
