@@ -49,7 +49,7 @@ in { pkgs, config, lib, ... }: {
     }];
   };
   networking.hostName = "usb-pi";
-  networking.defaultGateway = "192.168.178.102";
+#  networking.defaultGateway = "192.168.178.1";
   networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
 
   services.openssh = {
