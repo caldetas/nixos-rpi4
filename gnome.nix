@@ -7,11 +7,11 @@
 {
     programs = {
       zsh.enable = true;
-      kdeconnect = {
-        # GSConnect
-        enable = true;
-        package = pkgs.gnomeExtensions.gsconnect;
-      };
+#      kdeconnect = {
+#        # GSConnect
+#        enable = true;
+#        package = pkgs.gnomeExtensions.gsconnect;
+#      };
     };
 
     services = {
@@ -20,8 +20,6 @@
 
         xkb = {
           layout = "ch";
-          #            variant = "de_nodeadkeys";
-          #            options = "compose:ralt";
         };
 
         displayManager.gdm.enable = true; # Display Manager
