@@ -23,7 +23,7 @@
       }).config.system.build.sdImage;
     in {
       nixosConfigurations = { nixos = system; };
-      images.pi = image;
+      images.nixos = image;
 #
 #        description = "NixOS configuration with flakes";
 #        inputs.nixos-hardware.url = "github:NixOS/nixos-hardware/master";
