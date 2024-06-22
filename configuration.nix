@@ -30,8 +30,7 @@ in { pkgs, config, lib, ... }: {
       isNormalUser = true;
       initialPassword = "nixos";
       openssh.authorizedKeys.keys = sshkeys;
-      extraGroups = [ "wheel"  "dialout" "gpio" "i2c" ];
-#      extraGroups = [ "wheel" "networkmanager" "dialout" "gpio" "i2c" ];
+      extraGroups = [ "wheel" "networkmanager" "dialout" "gpio" "i2c" ];
     };
     extraUsers.root = {
       initialPassword = "nixos";
@@ -52,7 +51,7 @@ in { pkgs, config, lib, ... }: {
 #      prefixLength = 24;
 #    }];
 #  };
-  networking.hostName = "pi";
+#  networking.hostName = "pi";
 
 ##  networking.defaultGateway = "192.168.178.1";
 #  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
