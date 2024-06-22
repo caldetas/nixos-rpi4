@@ -43,15 +43,18 @@ in { pkgs, config, lib, ... }: {
 #    extraConfig = "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel";
 #  };
     services.xserver.enable = true;
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+#    services.xserver.displayManager.gdm.enable = true;
+#    services.xserver.desktopManager.gnome.enable = true;
+    services.displayManager.sddm.enable = true;
+    services.xserver.desktopManager.plasma5.bigscreen.enable = true;
+    services.xserver.desktopManager.plasma5.enable = true;
 #  networking.interfaces.wlan0 = {
 #    ipv4.addresses = [{
 #      address = "192.168.178.102";
 #      prefixLength = 24;
 #    }];
 #  };
-  networking.hostName = "nixos";
+#  networking.hostName = "nixos";
 
 ##  networking.defaultGateway = "192.168.178.1";
   networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
