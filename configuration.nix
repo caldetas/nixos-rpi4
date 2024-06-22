@@ -3,7 +3,7 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILECy6PK+pg6QaEoKQ4sr32COh14nnEE5BdzmqOK13Ca rspi4@example.com"
   ];
 in { pkgs, config, lib, ... }: {
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
   environment.systemPackages = with pkgs; [
     vim
     nano
