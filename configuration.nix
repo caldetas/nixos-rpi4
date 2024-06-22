@@ -48,7 +48,7 @@ in { pkgs, config, lib, ... }: {
       prefixLength = 24;
     }];
   };
-  networking.hostName = "usb-pi";
+  networking.hostName = "pi";
 #  networking.defaultGateway = "192.168.178.1";
   networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
 
