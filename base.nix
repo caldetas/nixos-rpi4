@@ -17,7 +17,7 @@
     kernelParams = [ "console=ttyAMA0,115200n8" "console=ttyS0,115200n8" ];
     loader = {
       generic-extlinux-compatible.enable = lib.mkDefault true;
-      grub.enable = lib.mkDefault false;
+      grub.enable = lib.mkDefault true;
     };
     kernelModules = [ "i2c-dev" ];
     initrd.availableKernelModules = pkgs.lib.mkForce [ "mmc_block" ];
