@@ -6,7 +6,7 @@ in { pkgs, config, lib, ... }: {
 imports = [
   "${fetchTarball "https://github.com/NixOS/nixos-hardware/tarball/master"}/raspberry-pi/4"
 ];
-  system.stateVersion = "24.05";
+  system.stateVersion = "23.11";
   environment.systemPackages = with pkgs; [
     vim
     nano
@@ -45,14 +45,14 @@ imports = [
     interfaces = [ "wlan0" ];
     networks = { "robot" = { psk = "frijolito"; }; };
   };
-  networking.interfaces.wlan0 = {
-    ipv4.addresses = [{
-      address = "192.168.178.102";
-      prefixLength = 24;
-    }];
-  };
-  networking.hostName = "pi";
-#  networking.defaultGateway = "192.168.178.1";
+#  networking.interfaces.wlan0 = {
+#    ipv4.addresses = [{
+#      address = "192.168.178.102";
+#      prefixLength = 24;
+#    }];
+#  };
+#  networking.hostName = "pi";
+##  networking.defaultGateway = "192.168.178.1";
   networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
 
   services.openssh = {
