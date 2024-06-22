@@ -38,24 +38,24 @@ in { pkgs, config, lib, ... }: {
       openssh.authorizedKeys.keys = sshkeys;
     };
   };
-  networking.wireless = {
-    enable = true;
-    networks."robot".psk = "frijolito";
-    extraConfig = "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel";
-  };
+#  networking.wireless = {
+#    enable = true;
+#    networks."robot".psk = "frijolito";
+#    extraConfig = "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel";
+#  };
     services.xserver.enable = true;
     services.xserver.displayManager.gdm.enable = true;
     services.xserver.desktopManager.gnome.enable = true;
-    services.xserver.displayManager.sddm.enable = true;
-    services.xserver.desktopManager.plasma5.bigscreen.enable = true;
-    services.xserver.desktopManager.plasma5.enable = true;
-  networking.interfaces.wlan0 = {
-    ipv4.addresses = [{
-      address = "192.168.178.102";
-      prefixLength = 24;
-    }];
-  };
-  networking.hostName = "nixos";
+#    services.xserver.displayManager.sddm.enable = true;
+#    services.xserver.desktopManager.plasma5.bigscreen.enable = true;
+#    services.xserver.desktopManager.plasma5.enable = true;
+#  networking.interfaces.wlan0 = {
+#    ipv4.addresses = [{
+#      address = "192.168.178.102";
+#      prefixLength = 24;
+#    }];
+#  };
+  networking.hostName = "usb-pi";
 
 #  networking.defaultGateway = "192.168.178.1";
   networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
