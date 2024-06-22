@@ -1,9 +1,9 @@
 clean:
 	rm -rf nixos.img
 
-all: pi.img
+all: nixos.img
 
-pi.img: $(find . -type f -name '*.nix')
+nixos.img: $(find . -type f -name '*.nix')
 	nix build '.#images.nixos' --impure
 	zstd --decompress --force -o nixos.img ./result/sd-image/*.zst
 	fdisk nixos.img -l
