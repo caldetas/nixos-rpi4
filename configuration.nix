@@ -30,7 +30,8 @@ in { pkgs, config, lib, ... }: {
       isNormalUser = true;
       initialPassword = "nixos";
       openssh.authorizedKeys.keys = sshkeys;
-      extraGroups = [ "wheel" "networkmanager" "dialout" "gpio" "i2c" ];
+      extraGroups = [ "wheel"  "dialout" "gpio" "i2c" ];
+#      extraGroups = [ "wheel" "networkmanager" "dialout" "gpio" "i2c" ];
     };
     extraUsers.root = {
       initialPassword = "nixos";
