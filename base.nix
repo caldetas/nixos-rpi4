@@ -24,7 +24,7 @@
   };
   nix.settings = {
     experimental-features = lib.mkDefault "nix-command flakes";
-    trusted-users = [ "root" "@wheel" ];
+    trusted-users = [ "root" "@wheel" "pi" ];
     substituters =
       [ "https://cache.nixos.org" ];
   };

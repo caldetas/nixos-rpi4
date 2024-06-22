@@ -3,9 +3,9 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILECy6PK+pg6QaEoKQ4sr32COh14nnEE5BdzmqOK13Ca rspi4@example.com"
   ];
 in { pkgs, config, lib, ... }: {
-imports = [
-  "${fetchTarball "https://github.com/NixOS/nixos-hardware/tarball/master"}/raspberry-pi/4"
-];
+#imports = [
+#  "${fetchTarball "https://github.com/NixOS/nixos-hardware/tarball/master"}/raspberry-pi/4"
+#];
   system.stateVersion = "23.11";
   environment.systemPackages = with pkgs; [
     vim
@@ -53,7 +53,7 @@ imports = [
 #  };
 #  networking.hostName = "pi";
 ##  networking.defaultGateway = "192.168.178.1";
-  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
+#  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
 
   services.openssh = {
     enable = true;
