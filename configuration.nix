@@ -26,7 +26,7 @@ in { pkgs, config, lib, ... }: {
 
   users = {
     extraGroups = { gpio = { }; };
-    extraUsers.pi = {
+    extraUsers.caldetas = {
       isNormalUser = true;
       initialPassword = "nixos";
       openssh.authorizedKeys.keys = sshkeys;
@@ -51,7 +51,8 @@ in { pkgs, config, lib, ... }: {
 #      prefixLength = 24;
 #    }];
 #  };
-  networking.hostName = "nixos";
+  networking.hostName = "pi";
+
 ##  networking.defaultGateway = "192.168.178.1";
 #  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
 
