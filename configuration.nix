@@ -38,11 +38,11 @@ in { pkgs, config, lib, ... }: {
       openssh.authorizedKeys.keys = sshkeys;
     };
   };
-  networking.wireless = {
-    enable = true;
-    networks."robot".psk = "frijolito";
-    extraConfig = "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel";
-  };
+#  networking.wireless = {
+#    enable = true;
+#    networks."robot".psk = "frijolito";
+#    extraConfig = "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel";
+#  };
     services.xserver.enable = true;
     services.xserver.displayManager.gdm.enable = true;
     services.xserver.desktopManager.gnome.enable = true;
@@ -55,10 +55,10 @@ in { pkgs, config, lib, ... }: {
 #      prefixLength = 24;
 #    }];
 #  };
-#  networking.hostName = "usb-pi";
+  networking.hostName = "nixos";
 
 #  networking.defaultGateway = "192.168.178.1";
-#  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
+  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
 
   services.openssh = {
     enable = true;
