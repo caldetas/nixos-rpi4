@@ -21,6 +21,7 @@ in { pkgs, config, lib, ... }: {
     libgpiod
     gpio-utils
     i2c-tools
+    plasma-nm
 
   ];
 
