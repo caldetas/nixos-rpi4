@@ -42,8 +42,8 @@ in { pkgs, config, lib, ... }: {
   };
   networking.wireless = {
     enable = true;
-    interfaces = [ "wlan0" ];
-    networks = { "robot" = { psk = "frijolito"; }; };
+    networks."robot".psk = "frijolito";
+    extraConfig = "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel";
   };
 #  networking.interfaces.wlan0 = {
 #    ipv4.addresses = [{
