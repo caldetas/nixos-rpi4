@@ -86,6 +86,7 @@ in { pkgs, config, lib, ... }: {
       font = "Lat2-Terminus16";
       keyMap = "sg";
     };
+    services.flatpak.enable = true;
 #    flatpak.enable = true;
 #    flatpak = {
 #    # Flatpak Packages (see module options)
