@@ -87,15 +87,15 @@ in { pkgs, config, lib, ... }: {
       keyMap = "sg";
     };
     flatpak.enable = true;
-    flatpak = {
-    # Flatpak Packages (see module options)
-    extraPackages = [
-      "com.github.tchx84.Flatseal"
-      "io.github.mimbrero.WhatsAppDesktop"
-      "org.signal.Signal"
-
-    ];
-    };
+#    flatpak = {
+#    # Flatpak Packages (see module options)
+#    extraPackages = [
+#      "com.github.tchx84.Flatseal"
+#      "io.github.mimbrero.WhatsAppDesktop"
+#      "org.signal.Signal"
+#
+#    ];
+#    };
   environment.etc."tmux.conf".source = ./tmux.conf;
 
 }

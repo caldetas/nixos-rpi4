@@ -12,7 +12,7 @@
           "${nixpkgs}/nixos/modules/profiles/minimal.nix"
           ./configuration.nix
           ./base.nix
-          ./flatpak.nix
+#          ./flatpak.nix
         ];
       };
       image = (system.extendModules {
