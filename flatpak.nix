@@ -53,8 +53,6 @@ with lib;
 #          or is is !gnome.enable?
 #          pkgs.xdg-desktop-portal-gtk
 #        ];
-
-      services.flatpak.enable = true;
       system.activationScripts =
         let
           extraPackages = concatStringsSep " " config.flatpak.extraPackages;

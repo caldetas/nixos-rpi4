@@ -95,6 +95,7 @@ in { pkgs, config, lib, ... }: {
 
         ];
       };
+            services.flatpak.enable = true;
   environment.etc."tmux.conf".source = ./tmux.conf;
 
 }
