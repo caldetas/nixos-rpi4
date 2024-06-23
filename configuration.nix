@@ -44,7 +44,13 @@ in { pkgs, config, lib, ... }: {
 #    extraConfig = "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel";
 #  };
     services.xserver.enable = true;
-    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.displayManager = {
+        gdm.enable = true;
+        autoLogin = {
+                enable = true;
+                user = "pi";
+            };
+    };
     services.xserver.desktopManager.gnome.enable = true;
 #    services.xserver.displayManager.sddm.enable = true;
 #    services.xserver.desktopManager.plasma5.bigscreen.enable = true;
