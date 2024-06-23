@@ -1,9 +1,6 @@
 {
   inputs = {
-    nixpkgs = {
-        url = "github:nixos/nixpkgs/nixos-unstable";
-        config.allowUnfree = true;
-        };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
   };
   outputs = { self, nixpkgs, nixos-hardware }:
