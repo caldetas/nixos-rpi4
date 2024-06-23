@@ -12,6 +12,7 @@
           "${nixpkgs}/nixos/modules/profiles/minimal.nix"
           ./configuration.nix
           ./base.nix
+          ./flatpak.nix
         ];
       };
       image = (system.extendModules {
@@ -25,19 +26,19 @@
       nixosConfigurations = { nixos = system; };
       images.nixos = image;
 #
-#        description = "NixOS configuration with flakes";
-#        inputs.nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-#
-#        outputs = { self, nixpkgs, nixos-hardware }: {
-#          # replace <your-hostname> with your actual hostname
-#          nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-#            # ...
-#            modules = [
-#              # ...
-#              # add your model from this list: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
-#              nixos-hardware.nixosModules.raspberry-pi-4
-#            ];
-#          };
-#        };
+        description = "NixOS configuration with flakes";
+        inputs.nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+        outputs = { self, nixpkgs, nixos-hardware }: {
+          # replace <your-hostname> with your actual hostname
+          nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+            # ...
+            modules = [
+              # ...
+              # add your model from this list: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
+              nixos-hardware.nixosModules.raspberry-pi-4
+            ];
+          };
+        };
     };
 }

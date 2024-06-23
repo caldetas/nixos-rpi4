@@ -16,6 +16,7 @@ in { pkgs, config, lib, ... }: {
     jq
     git
     rsync
+    steam
 
     libraspberrypi
     libgpiod
