@@ -22,8 +22,8 @@ with lib;
     };
   };
 
-#  config = mkIf (config.flatpak.enable)
-#    {
+  config = mkIf (config.flatpak.enable)
+    {
       xdg.portal.enable = true;
       xdg.portal.config =
         {
@@ -48,11 +48,14 @@ with lib;
             ];
           };
         };
-#      xdg.portal.extraPortals = mkIf (config.wlwm.enable || config.x11wm.enable || config.kde.enable)
-#        [
-#          or is is !gnome.enable?
-#          pkgs.xdg-desktop-portal-gtk
-#        ];
+      xdg.portal.extraPortals = mkIf (config.wlwm.enable || config.x11wm.enable || config.kde.enable)
+        [
+          #or is is !gnome.enable?
+          pkgs.xdg-desktop-portal-gtk
+        ];
+
+      services.flatpak.enable = true;
+
       system.activationScripts =
         let
           extraPackages = concatStringsSep " " config.flatpak.extraPackages;
@@ -93,5 +96,6 @@ with lib;
                 done
               '';
           };
-#    };
+    };
 }
+§

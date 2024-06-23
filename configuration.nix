@@ -85,17 +85,16 @@ in { pkgs, config, lib, ... }: {
       font = "Lat2-Terminus16";
       keyMap = "sg";
     };
+    flatpak.enable = true;
+    flatpak = {
+    # Flatpak Packages (see module options)
+    extraPackages = [
+      "com.github.tchx84.Flatseal"
+      "io.github.mimbrero.WhatsAppDesktop"
+      "org.signal.Signal"
 
-      flatpak = {
-        # Flatpak Packages (see module options)
-        extraPackages = [
-          "com.github.tchx84.Flatseal"
-          "io.github.mimbrero.WhatsAppDesktop"
-          "org.signal.Signal"
-
-        ];
-      };
-            services.flatpak.enable = true;
+    ];
+    };
   environment.etc."tmux.conf".source = ./tmux.conf;
 
 }
