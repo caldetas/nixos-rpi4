@@ -4,6 +4,7 @@ let
   ];
 in { pkgs, config, lib, ... }: {
   system.stateVersion = "24.05";
+   nixpkgs.config.allowUnfree = true; # Allow Proprietary Software.
   environment.systemPackages = with pkgs; [
     vim
     nano
