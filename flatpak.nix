@@ -48,11 +48,11 @@ with lib;
             ];
           };
         };
-      xdg.portal.extraPortals = mkIf (config.wlwm.enable || config.x11wm.enable || config.kde.enable)
-        [
-          #or is is !gnome.enable?
-          pkgs.xdg-desktop-portal-gtk
-        ];
+#      xdg.portal.extraPortals = mkIf (config.wlwm.enable || config.x11wm.enable || config.kde.enable)
+#        [
+#          #or is is !gnome.enable?
+#          pkgs.xdg-desktop-portal-gtk
+#        ];
 
       services.flatpak.enable = true;
 
@@ -98,4 +98,3 @@ with lib;
           };
     };
 }
-§
