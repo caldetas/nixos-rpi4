@@ -87,6 +87,30 @@ in { pkgs, config, lib, ... }: {
       keyMap = "sg";
     };
     services.flatpak.enable = true;
+      xdg.portal.enable = true;
+      xdg.portal.config =
+        {
+          common = {
+            default = [
+              "gtk"
+            ];
+          };
+          pantheon = {
+            default = [
+              "pantheon"
+              "gtk"
+            ];
+            "org.freedesktop.impl.portal.Secret" = [
+              "gnome-keyring"
+            ];
+          };
+          x-cinnamon = {
+            default = [
+              "xapp"
+              "gtk"
+            ];
+          };
+        };
 #    flatpak.enable = true;
 #    flatpak = {
 #    # Flatpak Packages (see module options)
