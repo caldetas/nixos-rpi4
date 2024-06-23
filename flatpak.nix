@@ -55,15 +55,6 @@ with lib;
 #        ];
 
       services.flatpak.enable = true;
-      flatpak = {
-        # Flatpak Packages (see module options)
-        extraPackages = [
-          "com.github.tchx84.Flatseal"
-          "io.github.mimbrero.WhatsAppDesktop"
-          "org.signal.Signal"
-
-        ];
-      };
       system.activationScripts =
         let
           extraPackages = concatStringsSep " " config.flatpak.extraPackages;
